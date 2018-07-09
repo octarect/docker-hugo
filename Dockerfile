@@ -5,12 +5,7 @@ WORKDIR /go/src/app
 COPY . .
 
 RUN set -x && \
-    apk add --update git && \
-    go get github.com/magefile/mage && \
-    go get -d github.com/gohugoio/hugo && \
-    cd ${GOPATH:-$HOME/go}/src/github.com/gohugoio/hugo && \
-    mage vendor && \
-    mage install
+    apk add --update hugo
 
-EXPOSE 8000
-ENTRYPOINT ["hugo", "server", "--port=8000", "--bind=0.0.0.0"]
+EXPOSE 80
+ENTRYPOINT ["/usr/bin/hugo", "server", "--port=80", "--bind=0.0.0.0"]
