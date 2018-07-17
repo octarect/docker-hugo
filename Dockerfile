@@ -1,8 +1,8 @@
 FROM golang:1.9.7-alpine3.7
 MAINTAINER ryota.kota@member.fsf.org
 
+ARG HUGO_APP_ROOT=.
 ENV HUGO_BASE_URL http://localhost
-ENV HUGO_APP_ROOT .
 
 RUN set -x && \
     apk add --update hugo
