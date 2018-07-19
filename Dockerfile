@@ -11,5 +11,5 @@ RUN set -x && \
 WORKDIR /go/src/app
 COPY $HUGO_APP_ROOT .
 
-EXPOSE 80
+EXPOSE $HUGO_PORT
 ENTRYPOINT /usr/bin/hugo server -D --baseURL $HUGO_BASE_URL --bind 0.0.0.0 -p $HUGO_PORT
